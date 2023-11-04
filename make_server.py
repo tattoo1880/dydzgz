@@ -1,8 +1,10 @@
+from os import wait
 from selenium.webdriver.chrome.service import Service as ChromeService
 import time
 from selenium import webdriver
 
 from  abccd.get_job import wooo
+from get_job2 import wooogz,wooogz2
 
 
 def start_server():
@@ -14,16 +16,26 @@ def start_server():
     return service
 
 if __name__ == '__main__':
-    service = start_server()
+    # service = start_server()
     options = webdriver.ChromeOptions()
     driver = webdriver.Remote(command_executor='http://127.0.0.1:57366', options=options)
+    driver.get('https://www.douyin.com/')
+    n = input("等待确认")
+    if n == '1':
+        print('开始')
+    waittime = 15
     try:
-        while True:
+        # 循环两次
+        for _ in range(19):
+        # while True:
             time.sleep(1)
-            wooo(driver)
+            # wooo(driver,waittime)
+            
+            wooogz2(driver,waittime)
+            # break
             
             
     except KeyboardInterrupt:
         print("正在停止 ChromeDriver...")
-        service.stop()
+        # service.stop()
         print("ChromeDriver 已停止")
