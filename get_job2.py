@@ -16,10 +16,10 @@ def get_acessKye():
     return acesskey
  
  
-def get_job(ackey):
+def get_job(ackey,uid,secuid):
     url = 'http://120.79.250.90:8020'
     tt_type = 'gz'   
-    str2 = f'/studio/api/task/get?key={ackey}&platform=dy&type={tt_type}&uid=22111433580634&sec_uid=MS4wLjABAAAAjSJ-n-ezIE8OtTDsiCiRP6h0qbQ-IGJA7wngmmvh9xw&filter=video&result=true'
+    str2 = f'/studio/api/task/get?key={ackey}&platform=dy&type={tt_type}&uid={uid}&sec_uid={secuid}&filter=video&result=true'
     res = requests.get(url + str2)
     print(res.json())
     if res.json()['success'] == False:
@@ -136,7 +136,7 @@ def wooogz2(driver,waittime):
             print('任务失败')
     
     
-def work3(brower,share_url,waittime):
+def work3(share_url,waittime):
     go_to(share_url)
     time.sleep(waittime)
     # 窗口最大化
@@ -160,16 +160,16 @@ def work3(brower,share_url,waittime):
             reslut = 0
     return reslut
     
-def wooogz3(brower,waittime):
+def wooogz3(waittime,uid,secuid):
     ackey = 'AKID7f6253e7538b8c77a47f008a8d39e61f'
-    task_id,sec_id,video_id,share_url = get_job(ackey=ackey)
+    task_id,sec_id,video_id,share_url = get_job(ackey,uid,secuid)
     if task_id != 0:
         print(task_id)
-        result = work3(brower,share_url,waittime)
+        result = work3(share_url,waittime)
         
         if result == 1:
             print('提交任务')
-            # finish_job(ackey, task_id)
+            finish_job(ackey, task_id)
         else:
             print('任务失败')
     

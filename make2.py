@@ -4,6 +4,7 @@ import time
 # 你的其他脚本
 from abccd.get_job import wooo
 from get_job2 import wooogz3
+from hell.h1 import get_profile
 
 def start_browser():
     # Helium 默认会启动一个新的 Chrome 浏览器实例，不需要指定driver路径
@@ -11,7 +12,8 @@ def start_browser():
     return browser
 
 if __name__ == '__main__':
-    browser = start_browser()
+    # browser = start_browser()
+    uid,secuid = get_profile()
     n = input("等待确认")
     if n == '1':
         print('开始')
@@ -32,7 +34,7 @@ if __name__ == '__main__':
             # wooo(browser, waittime)
             # wooogz2(browser, waittime)
             # ...
-            wooogz3(browser, waittime)
+            wooogz3(waittime,uid,secuid)
 
     except KeyboardInterrupt:
         print("正在关闭浏览器...")

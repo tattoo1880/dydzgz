@@ -20,6 +20,8 @@ if __name__ == '__main__':
     options = webdriver.ChromeOptions()
     driver = webdriver.Remote(command_executor='http://127.0.0.1:57366', options=options)
     driver.get('https://www.douyin.com/')
+    html = driver.page_source
+    
     n = input("等待确认")
     if n == '1':
         print('开始')
@@ -31,8 +33,8 @@ if __name__ == '__main__':
             time.sleep(1)
             # wooo(driver,waittime)
             
-            wooogz2(driver,waittime)
-            # break
+            # wooogz2(driver,waittime)
+            break
             
             
     except KeyboardInterrupt:
