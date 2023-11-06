@@ -20,7 +20,7 @@ if __name__ == '__main__':
     waittime = 15
     try:
         # 循环两次
-        for _ in range(2):
+        for _ in range(100):
             time.sleep(1)
             # 这里需要根据wooo和wooogz2的实现来修改，使其兼容Helium
             # 比如如果wooo是点击操作，使用Helium就是：
